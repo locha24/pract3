@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hpage</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-amber-200">
+    <header
+      class="flex flex-col md:flex-row justify-between items-center p-4 border-b border-gray-700"
+    >
+      <div class="uppercase font-bold pt-2 h-[50px]">
+        <a class="text-3xl hover:underline" href="">logo</a>
+      </div>
+      <nav class="mt-4 md:mt-0">
+        <ul
+          class="hidden md:flex md:gap-10 md:space-x-4 text-center md:pr-[60px] text-[20px]"
+        >
+          <li class="hover:cursor-pointer hover:text-white">Topic 1</li>
+          <li class="hover:cursor-pointer hover:text-white">Topic 2</li>
+          <li class="hover:cursor-pointer hover:text-white">Topic 3</li>
+          <li class="hover:cursor-pointer hover:text-white">Topic 4</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div
+      class="flex flex-col md:flex-row p-4 space-y-4 md:space-x-4 md:space-y-0"
+    >
+      <aside
+        class="w-full md:w-1/5 h-auto md:h-[750px] bg-amber-400 rounded-xl p-4 flex flex-col space-y-2"
+      >
+        <a href=" " class="font-semibold hover:text-white">Main Page</a>
+        <a href=" " class="font-semibold hover:text-white">Second Page</a>
+        <a href=" " class="font-semibold hover:text-white">Third Page</a>
+        <a href=" " class="font-semibold hover:text-white">Fourth Page</a>
+      </aside>
+
+      <div class="w-full md:w-3/5">
+        <div
+          class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4"
+        >
+          <div
+            class="w-full md:w-1/2 h-[300px] flex items-center justify-center"
+          >
+            <img src="./images/food.jpg" class="rounded-xl" alt="food" />
+          </div>
+          <div
+            class="w-full md:w-1/2 h-[300px] flex items-center justify-center rounded-lg"
+          >
+            <img
+              src="./images/pankakes.jpg"
+              class="rounded-xl"
+              alt="pankakes"
+            />
+          </div>
+        </div>
+        <div
+          class="bg-amber-400 rounded-xl h-auto md:h-[434px] p-4 flex items-center justify-center"
+        >
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
+          eius expedita iure exercitationem? Non totam eius delectus, iusto odit
+          facilis. Maxime placeat sequi, corporis ducimus esse voluptatibus
+          aliquam? Ipsa, velit.
+        </div>
+      </div>
+
+      <aside class="w-full md:w-1/5 bg-amber-400 p-4 space-y-4 rounded-xl">
+        <div
+          class="h-[250px] md:h-[510px] flex justify-center bg-amber-500 rounded-xl"
+        >
+          <form class="w-full flex flex-col space-y-4">
+            <label for="purchase-name">Yes</label>
+            <label for="price">Price:</label> 
+            <select id="category" name="category" class="p-2 rounded-lg w-1 h-1">
+              <option value="hamburger">hamburger</option>
+              <option value="potato">potato</option>
+              <option value="drinks">drinks</option>
+              <option value="meat">meat</option>
+            </select>
+
+            <button type="submit" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus-outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Додати</button>
+          </form>
+        </div>
+        <div class="h-[190px] flex items-center justify-center bg-amber-500">
+          <!-- <img src="./images/strawbery.jpg" class="rounded-xl"> -->
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus,
+          corrupti commodi eos beatae placeat deleniti culpa facere
+          necessitatibus doloremque nihil. Cumque ex eveniet nemo exercitationem
+          rem amet dicta. Deserunt, cupiditate.
+        </div>
+      </aside>
+    </div>
+
+    <footer
+      class="flex flex-col md:flex-row justify-between items-center p-3 bg-amber-200 border-t-2 border-gray-400 w-auto h-auto space-y-4 md:space-y-0"
+    >
+      <div class="w-full md:w-1/3 h-16 flex items-center justify-center">
+        <img src="./images/icons/mail.svg" class="pt-1 h-[30px] w-[42px]" />
+        <a href="smirnovvladislav408@gmail.com"
+          >smirnovvladislav408@gmail.com</a
+        >
+      </div>
+      <div class="w-full md:w-1/3 h-16 flex items-center justify-center">
+        <img src="./images/icons/call.svg" class="pt-1 h-[30px] w-[42px]" />
+        <p>+380975486123</p>
+      </div>
+      <div class="w-full md:w-1/3 h-16 flex items-center justify-center">
+        <img
+          src="./images/icons/github-mark.svg"
+          class="h-[30px] w-[42px] pr-3"
+        />
+        <a
+          href="https://github.com/locha24"
+          class="hover:underline hover:text-blue-800"
+          >https://github.com/locha24</a
+        >
+      </div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

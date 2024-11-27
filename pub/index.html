@@ -70,17 +70,19 @@
         <div
           class="h-[250px] md:h-[510px] flex justify-center bg-amber-500 rounded-xl"
         >
-          <form class="w-full flex flex-col space-y-4">
-            <label for="purchase-name">Yes</label>
-            <label for="price">Price:</label> 
-            <select id="category" name="category" class="p-2 rounded-lg w-1 h-1">
+          <form class="w-full flex flex-col space-y-4 items-center">
+            <label for="items-list" class="text-xl pt-3">Items List:</label>
+            <ul id="items-list" class="w-80 p-2">
+              
+            </ul>
+            <select id="category" name="category" class="p-2 rounded-lg w-80">
               <option value="hamburger">hamburger</option>
               <option value="potato">potato</option>
               <option value="drinks">drinks</option>
               <option value="meat">meat</option>
             </select>
-
-            <button type="submit" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus-outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Додати</button>
+            <button id="add-item" type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-80">Pink to Orange</button>
+            <label id="price" class="text-xl pt-2">Price:</label>
           </form>
         </div>
         <div class="h-[190px] flex items-center justify-center bg-amber-500">

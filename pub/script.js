@@ -1,44 +1,56 @@
 'use strict';
 
-const itemsList = document.getElementById('items-list');
-const addItemButton = document.getElementById('add-item');
-const priceInput = document.getElementById('price');
-const categorySelect = document.getElementById('category');
-const totalPrice = document.getElementById('total-price');
-
-const categoriesPrices = {
-    'hamburger': 50,
-    'potato': 30,
-    'drinks': 20,
-    'meat': 100
+const itemPrices = {
+    hamburger: 5.99,
+    potato: 2.49,
+    drinks: 1.99,
+    meat: 10.99
 };
 
-const categoriesImages = { 
-    'hamburger': './images/hamburger.jpg', 
-    'potato': './images/potato.jpg', 
-    'drinks': './images/drinks.jpg', 
-    'meat': './images/meat.jpg' 
-}
+const itemImages = {
+    hamburger: './hamburger.jpg',
+    potato: './potato.jpg',
+    drinks: './drinks.jpg',
+    meat: './meat.jpg'
+};
 
-categorySelect.addEventListener('change', () => {
-    const selectedCategory = categorySelect.value;
-    priceInput.value = categoriesPrices[selectedCategory];
+const itemsContainer = document.getElementById('items-container');
+const totalItemsEl = document.getElementById('total-items');
+const totalPriceEl = document.getElementById('total-price');
+const itemCategoryEl = document.getElementById('item-category');
+const itemPriceEl = document.getElementById('item-price');
+
+itemCategoryEl.addEventListener('change', () => {
+    const selectedItem = itemCategoryEl.value;
+    itemPriceEl.value = `$${itemPrices[selectedItem].toFixed(2)}`;
 });
 
-addItemButton.addEventListener('click', () => {
-    const priceValue = priceInput.value;
-    const categoryValue = categorySelect.value;
-    const imageUrl = categoriesImages[categoryValue];
+window.addEventListener('load', () => {
+    itemCategoryEl.dispatchEvent(new Event('change'));
+});
 
-    if (priceValue && categoryValue) {
-        const itemblock = document.createElement('li');
-        itemblock.classList.add('p-2', 'rounded-lg', 'flex', 'justify-between', 'items-center', 'mb-2');
+document.getElementById('add-item').addEventListener('click', () => {
+    const name = itemCategoryEl.options[itemCategoryEl.selectedIndex].text;
+    const price = itemPrices[itemCategoryEl.value];
+    const imageSrc = `./images/${itemImages[itemCategoryEl.value]}`;
 
-        const itemImage = document.createElement('img');
-        itemImage.src = imageUrl;
-        itemImage.alt = categoryValue;
-        itemImage.classList.add('h-12', 'w-12', 'rounded-full');
-    }
+    const itemBlock = document.createElement('div');
+    itemBlock.classList.add('bg-amber-300', 'p-4', 'rounded-lg', 'flex', 'justify-between', 'items-center');
+    itemBlock.innerHTML = `
+      <div class="flex items-center space-x-4">
+        <img src="${imageSrc}" alt="${name}" class="w-16 h-16 rounded-md">
+        <p><strong>${name}</strong> - $${price.toFixed(2)}</p>
+      </div>
+      <button class="delete-btn bg-red-500 text-white p-2 rounded-lg">Delete</button>
+    `;
+    itemsContainer.appendChild(itemBlock);
 
-    console.log('click');
-})
+    totalItemsEl.textContent = parseInt(totalItemsEl.textContent) + 1;
+    totalPriceEl.textContent = (parseFloat(totalPriceEl.textContent) + price).toFixed(2);
+
+    itemBlock.querySelector('.delete-btn').addEventListener('click', () => {
+      itemsContainer.removeChild(itemBlock);
+      totalItemsEl.textContent = parseInt(totalItemsEl.textContent) - 1;
+      totalPriceEl.textContent = (parseFloat(totalPriceEl.textContent) - price).toFixed(2);
+    });
+});
